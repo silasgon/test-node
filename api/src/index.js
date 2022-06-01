@@ -1,4 +1,4 @@
-const api = require('./api');
+const api = require('./services');
 const { request, response } = require('express');
 const express = require('express');
 
@@ -8,6 +8,3 @@ app.use(express.json());
 
 app.listen(8001);
 
-app.get('/', await (request, response) => {
-    return 
-})
