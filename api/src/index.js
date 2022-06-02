@@ -6,5 +6,21 @@ const app = express();
 
 app.use(express.json());
 
-app.listen(8001);
+// função verificar simbolos
+
+
+// Preço atual da ação
+
+
+// histórico da ação
+
+// Comparação entre ações
+
+
+// Projeção de ganhos com dados do passado
+
+
+
+
+app.listen(8080);
 
