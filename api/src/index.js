@@ -11,11 +11,13 @@ app.use(express.json());
 
 // função verificar simbolos
 
-
+function pegarDados(params) {
+  
+}
 // Preço atual da ação
 app.get('/quote', (request, response) => {
     axios.get(`https://www.alphavantage.co/query?function=GLOBAL_QUOTE&symbol=IBM&apikey=${apiKey}`)
-  .then(function (dados) {
+    .then(function (dados) {
 
     console.log(dados);
     
@@ -32,7 +34,7 @@ app.get('/quote', (request, response) => {
 
 // histórico da ação
 app.get('/history', (request, response) => {
-  axios.get(`https://www.alphavantage.co/query?function=GLOBAL_QUOTE&symbol=IBM&apikey=${apiKey}`)
+  axios.get(`https://www.alphavantage.co/query?function=TIME_SERIES_DAILY&symbol=IBM&apikey=${apiKey}`)
 .then(function (dados) {
 
   console.log(dados);
@@ -49,6 +51,23 @@ app.get('/history', (request, response) => {
 });
 
 // Comparação entre ações
+
+app.get('/comparation', (request, response) => {
+    axios.get(`https://www.alphavantage.co/query?function=TIME_SERIES_DAILY&symbol=IBM&apikey=${apiKey}`)
+.then(function (dados) {
+
+  console.log(dados);
+
+  return response.json(dados.data)
+})
+.catch(function (error) {
+
+  console.log(error);
+  
+  return response.json(error);
+})
+
+});
 
 
 // Projeção de ganhos com dados do passado
